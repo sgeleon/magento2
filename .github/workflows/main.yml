@@ -32,9 +32,10 @@ jobs:
       # Runs a single command using the runners shell
       - name: Run a one-line script
         run: composer install
-      
-      - name: Add a private key
-        run:  ssh-add - <<< "${{ secrets.SSH_PRIVATE_KEY }}"
+ 
+      - uses: webfactory/ssh-agent@v0.1.1
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
       
       - name: Deploy app
         run: php vendor/bin/dep deploy-artifact -v master
