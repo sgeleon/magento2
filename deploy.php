@@ -32,3 +32,5 @@ host('master')
     ->set('deploy_path', '/var/www/html/')
     ->stage('dev')
     ->roles('master');
+
+//setIdentityFile($file_path)
