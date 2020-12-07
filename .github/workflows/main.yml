@@ -35,6 +35,9 @@ jobs:
       
       - name: Add a private key
         run: ssh-add <(echo "$SSH_PRIVATE_KEY") 
+      
+      - name: Deploy app
+        run: php vendor/bin/dep deploy-artifact -v master
 
       # Runs a set of commands using the runners shell
       #- name: Run a multi-line script
