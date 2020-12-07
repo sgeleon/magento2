@@ -38,7 +38,7 @@ jobs:
       #    ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
      
       - name: Deploy app
-        run: ssh-add < "${{ secrets.SSH_PRIVATE_KEY }}"
+        run: ssh-add << "${{ secrets.SSH_PRIVATE_KEY }}"
          
       - name: Deploy app 2
         run: php vendor/bin/dep deploy-artifact -v master
